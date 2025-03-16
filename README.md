@@ -1,34 +1,12 @@
-# QR Kasa Frontend
+# React + Vite
 
-Bu proje, QR kod tabanlı kasa sisteminin frontend uygulamasıdır.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Özellikler
+Currently, two official plugins are available:
 
-- QR kod oluşturma ve okuma
-- Kasa yönetimi
-- Kullanıcı dostu arayüz
-- Hızlı işlem yapabilme
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Kurulum
+## Expanding the ESLint configuration
 
-```bash
-# Repoyu klonlayın
-git clone https://github.com/sevmezabdullah/qrkasa-frontend.git
-
-# Proje dizinine gidin
-cd qrkasa-frontend
-
-# Bağımlılıkları yükleyin
-npm install
-
-# Geliştirme sunucusunu başlatın
-npm run dev
-```
-
-## Katkıda Bulunma
-
-Katkılarınızı bekliyoruz! Lütfen değişiklik yapmadan önce bir issue açın.
-
-## Lisans
-
-Bu proje MIT lisansı altında lisanslanmıştır.
+If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
