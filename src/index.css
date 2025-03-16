@@ -1,54 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Özel stiller */
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(0, 0, 0, 0.87);
-  background-color: #f5f5f5;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Özel bileşen stilleri */
+@layer components {
+  .dashboard-card {
+    @apply card bg-base-100 shadow-xl;
+  }
+
+  .card-content {
+    @apply card-body;
+  }
+
+  .action-button {
+    @apply btn btn-primary;
+  }
+
+  .admin-button {
+    @apply btn btn-secondary;
+  }
+
+  .logout-button {
+    @apply btn btn-error;
+  }
+
+  .login-button {
+    @apply btn btn-primary;
+  }
+
+  .form-group input {
+    @apply input input-bordered w-full;
+  }
+
+  .error-message {
+    @apply text-error;
+  }
+
+  .menu-item {
+    @apply card bg-base-100 shadow-md;
+  }
+
+  .menu-item-details {
+    @apply card-body;
+  }
+
+  .menu-item-price {
+    @apply font-bold text-primary;
+  }
+
+  .menu-item-description {
+    @apply text-base-content/70;
+  }
+
+  .category-tab {
+    @apply tab;
+  }
+
+  .category-tab.active {
+    @apply tab-active;
+  }
+
+  .order-button {
+    @apply btn btn-primary btn-sm;
+  }
+
+  .place-order-button {
+    @apply btn btn-success btn-block;
+  }
+
+  .quantity-button {
+    @apply btn btn-circle btn-sm;
+  }
+
+  .back-button {
+    @apply btn btn-ghost;
+  }
+
+  .home-link {
+    @apply link link-hover;
+  }
+
+  .table-input input {
+    @apply input input-bordered;
+  }
+}
+
+/* Diğer stiller */
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 a {
   font-weight: 500;
-  color: #646cff;
   text-decoration: inherit;
 }
+
 a:hover {
-  color: #535bf2;
+  text-decoration: underline;
 }
 
 body {
   margin: 0;
   display: flex;
+  place-items: center;
   min-width: 320px;
   min-height: 100vh;
 }
 
 h1 {
-  font-size: 2.2em;
+  font-size: 3.2em;
   line-height: 1.1;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5em;
 }
 
 h2 {
-  font-size: 1.8em;
-  margin-bottom: 0.8rem;
+  font-size: 2.4em;
+  line-height: 1.1;
 }
 
 h3 {
-  font-size: 1.4em;
-  margin-bottom: 0.5rem;
+  font-size: 1.8em;
+  line-height: 1.1;
 }
 
 button {
@@ -59,43 +142,43 @@ button {
   font-weight: 500;
   font-family: inherit;
   background-color: #1a1a1a;
-  color: white;
   cursor: pointer;
-  transition: border-color 0.25s, background-color 0.25s;
+  transition: border-color 0.25s;
 }
+
 button:hover {
   border-color: #646cff;
-  background-color: #2a2a2a;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
 #root {
-  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: center;
 }
 
-/* Login Sayfası */
 .login-container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
   min-height: 100vh;
-  padding: 2rem;
 }
 
 .login-form {
-  background-color: white;
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 400px;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .form-group {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .form-group label {
@@ -104,47 +187,31 @@ button:focus-visible {
   font-weight: 500;
 }
 
-.form-group input {
-  width: 100%;
-  padding: 0.8rem;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 1rem;
-}
-
 .login-button {
   width: 100%;
-  background-color: #646cff;
-  color: white;
-  padding: 0.8rem;
-  font-size: 1rem;
+  padding: 0.75rem;
   border: none;
   border-radius: 4px;
+  background-color: #4f46e5;
+  color: white;
+  font-weight: 500;
   cursor: pointer;
-  transition: background-color 0.3s;
 }
 
 .login-button:hover {
-  background-color: #535bf2;
-}
-
-.error-message {
-  color: #e53935;
-  margin-bottom: 1rem;
-  padding: 0.5rem;
-  background-color: rgba(229, 57, 53, 0.1);
-  border-radius: 4px;
+  background-color: #4338ca;
 }
 
 .public-link {
-  margin-top: 1.5rem;
-  text-align: center;
+  margin-top: 1rem;
+  color: #4f46e5;
+  text-decoration: none;
 }
 
-/* Dashboard Stilleri */
 .dashboard {
-  width: 100%;
   padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .dashboard-header {
@@ -153,164 +220,61 @@ button:focus-visible {
   align-items: center;
   margin-bottom: 2rem;
   padding-bottom: 1rem;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #e5e7eb;
 }
 
 .user-info {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.5rem;
+  font-weight: 500;
 }
 
-.logout-button {
-  background-color: #f44336;
-  color: white;
-  border: none;
-}
-
-.logout-button:hover {
-  background-color: #d32f2f;
-}
-
-.dashboard-content {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.5rem;
-}
-
-.dashboard-card {
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 1.5rem;
-  height: 100%;
-}
-
-.card-content {
-  margin-top: 1rem;
-}
-
-.action-button {
-  background-color: #646cff;
-  color: white;
-  border: none;
-  margin-right: 0.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.action-button:hover {
-  background-color: #535bf2;
-}
-
-.admin-button {
-  background-color: #2196f3;
-  color: white;
-  border: none;
-  margin-right: 0.5rem;
-  margin-bottom: 0.5rem;
-  width: 100%;
-}
-
-.admin-button:hover {
-  background-color: #1976d2;
-}
-
-/* Menü Sayfası */
 .menu-page {
-  width: 100%;
   padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .menu-header {
-  text-align: center;
   margin-bottom: 2rem;
+  text-align: center;
 }
 
 .category-tabs {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 1rem;
   margin-bottom: 2rem;
-}
-
-.category-tab {
-  background-color: #f1f1f1;
-  color: #333;
-  border: none;
-  padding: 0.6rem 1.2rem;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.category-tab.active {
-  background-color: #646cff;
-  color: white;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e5e7eb;
 }
 
 .menu-items {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 1.5rem;
-}
-
-.menu-item {
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
 }
 
 .menu-item-image img {
   width: 100%;
-  height: 150px;
+  height: 200px;
   object-fit: cover;
-}
-
-.menu-item-details {
-  padding: 1rem;
-}
-
-.menu-item-price {
-  font-weight: bold;
-  color: #646cff;
-  margin-top: 0.5rem;
-}
-
-.menu-item-description {
-  color: #666;
-  margin: 0.5rem 0;
-  font-size: 0.9rem;
+  border-radius: 8px 8px 0 0;
 }
 
 .qr-section {
-  text-align: center;
-  margin-top: 3rem;
+  margin-top: 4rem;
   padding: 2rem;
-  background-color: white;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #f9fafb;
+  text-align: center;
 }
 
-.order-button {
-  display: inline-block;
-  background-color: #4caf50;
-  color: white;
-  padding: 0.8rem 1.5rem;
-  border-radius: 4px;
-  margin-top: 1rem;
-  text-decoration: none;
-  transition: background-color 0.3s;
-}
-
-.order-button:hover {
-  background-color: #388e3c;
-}
-
-/* Sipariş Sayfası */
 .order-page {
-  width: 100%;
   padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .order-header {
@@ -318,17 +282,10 @@ button:focus-visible {
 }
 
 .table-input {
-  margin-top: 1rem;
   display: flex;
   align-items: center;
   gap: 1rem;
-}
-
-.table-input input {
-  padding: 0.5rem;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  width: 100px;
+  margin-bottom: 2rem;
 }
 
 .order-content {
@@ -344,26 +301,27 @@ button:focus-visible {
 }
 
 .cart-section {
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 1.5rem;
-  height: fit-content;
+  border-radius: 8px;
+  background-color: #f9fafb;
   position: sticky;
   top: 2rem;
 }
 
 .cart-items {
-  list-style: none;
-  margin: 1rem 0;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .cart-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.8rem 0;
-  border-bottom: 1px solid #eee;
+  padding: 0.75rem;
+  border-radius: 4px;
+  background-color: white;
 }
 
 .cart-item-details {
@@ -371,148 +329,84 @@ button:focus-visible {
 }
 
 .cart-item-name {
-  display: block;
   font-weight: 500;
+  margin-bottom: 0.25rem;
 }
 
 .cart-item-price {
-  color: #666;
-  font-size: 0.9rem;
+  font-size: 0.875rem;
+  color: #6b7280;
 }
 
 .cart-item-quantity {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  margin: 0 1rem;
-}
-
-.quantity-button {
-  background-color: #f1f1f1;
-  color: #333;
-  border: none;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0;
-  font-size: 1.2rem;
 }
 
 .cart-total {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e5e7eb;
   display: flex;
   justify-content: space-between;
-  font-weight: bold;
-  margin-top: 1rem;
-  padding-top: 1rem;
-  border-top: 2px solid #eee;
-}
-
-.place-order-button {
-  width: 100%;
-  background-color: #4caf50;
-  color: white;
-  padding: 0.8rem;
-  margin-top: 1rem;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.place-order-button:hover {
-  background-color: #388e3c;
+  font-weight: 500;
 }
 
 .empty-cart {
   text-align: center;
-  color: #666;
-  padding: 2rem 0;
+  padding: 2rem;
+  color: #6b7280;
 }
 
 .order-success {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  min-height: 100vh;
-  padding: 2rem;
+  justify-content: center;
+  min-height: 60vh;
 }
 
 .success-content {
-  background-color: white;
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
+  padding: 3rem;
+  border-radius: 8px;
+  background-color: #f0fdf4;
   max-width: 500px;
 }
 
-.back-button {
-  display: inline-block;
-  background-color: #646cff;
-  color: white;
-  padding: 0.8rem 1.5rem;
-  border-radius: 4px;
-  margin-top: 1.5rem;
-  text-decoration: none;
-  transition: background-color 0.3s;
-}
-
-.back-button:hover {
-  background-color: #535bf2;
-}
-
-/* Yetkisiz Erişim Sayfası */
 .unauthorized-page {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
   min-height: 100vh;
-  padding: 2rem;
 }
 
 .unauthorized-content {
-  background-color: white;
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
+  padding: 3rem;
+  border-radius: 8px;
+  background-color: #fef2f2;
   max-width: 500px;
 }
 
 .unauthorized-actions {
   display: flex;
-  justify-content: center;
   gap: 1rem;
-  margin-top: 1.5rem;
-}
-
-.home-link {
-  display: inline-block;
-  background-color: #646cff;
-  color: white;
-  padding: 0.8rem 1.5rem;
-  border-radius: 4px;
-  text-decoration: none;
-  transition: background-color 0.3s;
-}
-
-.home-link:hover {
-  background-color: #535bf2;
+  margin-top: 2rem;
+  justify-content: center;
 }
 
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
-    background-color: #f5f5f5;
+    background-color: #ffffff;
   }
   a:hover {
     color: #747bff;
   }
   button {
     background-color: #f9f9f9;
-    color: #213547;
   }
 }
